@@ -1,0 +1,407 @@
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+// Define your custom colors
+$primary-color: #963484;
+$hover-color: #60afff;
+$special-content: #212121;
+$outer-box: #121212;
+// Global styles
+body {
+  background-color: black;
+  width: 100%;
+  #root {
+    width: 100%;
+  }
+}
+
+.pageLayout {
+  display: block;
+  height: 100%;
+  width: 98%;
+  .banner {
+    margin-left: auto;
+    margin-right: auto;
+    width: 96%;
+    height: 100%;
+    max-width: 400px;
+    border: 4px;
+    padding: 5px;
+    margin-top: 4%;
+
+    //header content
+    header {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 15%;
+      width: 100%;
+      background-color: $outer-box;
+      border-radius: 10px;
+
+      .siteLogo {
+        align-self: center;
+        color: $primary-color;
+        font-size: 2em;
+        font-family: "Oswald";
+        font-weight: bold;
+        display: none;
+      }
+
+      .hub {
+        padding: 0px 0px;
+        background-color: $outer-box;
+        border: 0.5px solid rgba(0 0 0/0.08);
+        border-radius: 10px;
+        position: relative;
+        margin-left: auto;
+
+        .profileContainer {
+          position: relative;
+          display: inline-block;
+
+          .profile {
+            justify-content: end;
+            height: 35px;
+            width: 35px;
+            color: $primary-color;
+            padding: 2px;
+            margin-right: auto;
+            display: inline-block;
+            cursor: pointer;
+            margin: auto;
+            display: relative;
+
+            &:hover {
+              color: $hover-color;
+            }
+          }
+
+          .profileContent {
+            position: absolute;
+            top: 100%;
+            left: -170%;
+            background-color: $special-content;
+            box-shadow: 0 3px 10px rgba(0 0 0/0.4);
+            border-radius: 5px;
+            height: 250px;
+            width: 150px;
+            text-align: center;
+
+            .profileContent.closed {
+              display: none;
+            }
+
+            a {
+              text-decoration: none;
+              display: block;
+              padding: 8px;
+              cursor: pointer;
+              color: white;
+              font-family: "Oswald";
+
+              &:hover {
+                background-color: #383838;
+                border-radius: 5px;
+              }
+            }
+          }
+        }
+
+        .menu,
+        .close-icon {
+          margin-left: 2px;
+          display: inline-block;
+          margin-left: auto;
+          @extend .profile;
+          height: 40px;
+          width: 40px;
+          cursor: pointer;
+          position: relative;
+        }
+
+        .menu {
+          margin-left: 2px;
+          display: inline-block;
+          height: 40px;
+          width: 40px;
+          z-index: 2;
+          color: $primary-color;
+          margin-bottom: 2px;
+        }
+
+        .close-icon {
+          cursor: pointer;
+          z-index: 3;
+          color: white;
+        }
+
+        &:after {
+          content: "";
+          display: table;
+          clear: both;
+        }
+
+        .sidebar {
+          display: none;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100vh;
+          position: fixed;
+          align-items: center;
+          text-align: center;
+          flex-direction: column;
+          justify-content: center;
+          background-color: rgba(0, 0, 0, 0.753);
+
+          a {
+            font-size: 20px;
+            color: white;
+            display: block;
+          }
+        }
+
+        .sidebar.open {
+          display: flex !important;
+        }
+      }
+
+      //search bar Content
+
+      .search {
+        align-items: center;
+        width: 70%;
+        margin: auto 10px auto auto;
+        overflow: hidden;
+        display: inline-flex;
+        text-align: center;
+        text-decoration: none;
+        height: 60px;
+        padding: 4px;
+
+        #searchBar {
+          @extend .search;
+          width: 100%;
+          height: 100%;
+        }
+
+        #SearchInput,
+        #submitButton {
+          margin-top: 2px;
+          font-size: 0.6em;
+          font-family: "Oswald";
+          background-color: $special-content;
+          margin-left: 4px;
+          margin-right: 4px;
+          &:not(:last-child) {
+            border-right: 0.5px solid rgba(0 0 0/0.25);
+          }
+        }
+
+        #SearchInput {
+          flex-grow: 1;
+          min-width: 50%;
+          max-width: 90%; // Adjust the max-width as needed
+          color: white;
+          padding: 2px 15px;
+          border-radius: 50px;
+          height: 100%;
+
+          &:focus {
+            outline-color: white;
+          }
+        }
+
+        #submitButton {
+          text-align: center;
+          align-items: center;
+          bottom: 25px;
+          color: $primary-color;
+          margin-left: 4px;
+          background-color: $special-content;
+
+          svg {
+            height: 20px;
+            width: 20px;
+            float: right;
+            margin-left: auto;
+            justify-content: end;
+            background-color: $outer-box;
+            &:hover {
+              color: $hover-color;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.content {
+  background-color: $outer-box;
+  border-radius: 10px;
+  
+  .section {
+    margin: 10px 0;
+    color: white;
+    font-family: "Oswald";
+    letter-spacing: 1px;
+    height: 245px;
+    padding: 10px;
+    
+
+    h1 {
+      margin-bottom: 8px;
+      font-size: 1.5rem;
+    }
+
+    .row {
+      width: 100%;
+
+      display: flex;
+
+      .item {
+        color: white;
+        display: inline-block;
+        margin: 0 4px;
+        background-color: $special-content;
+        width: 130px;
+        padding: 10px;
+        margin: 0 5px 0 5px;
+
+        .coverArt {
+          height: 110px;
+          width: 110px;
+        }
+
+        .profilePicture {
+          height: 110px;
+          width: 110px;
+          border-radius: 50%;
+        }
+
+        .textArea {
+          line-height: 1;
+          margin: 4px 0;
+          width: 110px;
+
+          .artistName {
+            font-size: 10px;
+            color: white;
+            text-align: center;
+          }
+
+          .text,
+          .text3,
+          .seperator {
+            color: gray;
+            margin: 1px;
+            line-height: 1;
+            font-family: "Oswald";
+          }
+
+          .mainText {
+            font-size: 10px;
+            color: white;
+          }
+
+          .text {
+            font-size: 8px;
+            display: inline;
+          }
+
+          .text3 {
+            font-size: 8px;
+            display: inline;
+          }
+
+          .seperator {
+            display: inline;
+            position: relative;
+            top: 2px;
+          }
+        }
+      }
+    }
+  }
+
+
+//navbar content
+nav {
+  display: none;
+
+}
+}
+// Media query for larger screens (min-width: 744px)
+@media screen and (min-width: 746px) {
+  .pageLayout {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    margin: 8px;
+    margin-top: 16px;
+    //nav bar content
+    nav {
+      display: flex;  
+      flex-direction: column;
+      width: 25%;
+      background-color: $outer-box;
+      color: white;
+      border-radius: 10px;
+      padding: 4px;
+      height: 850px;
+      margin: 4px;
+    }
+
+    //main content 
+    .banner {
+      width: 75%;
+      max-width: none;
+      position: relative;
+      margin: 0;
+      padding: 4px;
+
+      header {
+        margin: 0;
+        padding: 4px;
+
+        .siteLogo {
+          display: flex;
+          margin-right: auto;
+          align-items: center;
+          margin: 0 0 2px 4px;
+        }
+        .hub {
+          .profileContainer {
+            margin: 0 5px;
+          }
+          .menu {
+            display: none;
+          }
+        }
+
+        header .dropdownContainer .dropdown {
+          display: block; // Show the dropdown on larger screens
+        }
+
+        .search {
+          flex-direction: row; // Restore flex direction for larger screens
+
+          #queryDropdown {
+            min-width: 13%;
+            width: 8%;
+          }
+        }
+      }
+      .content {
+        padding: 4px;
+        margin-top: 8px;
+        height: 774px;
+
+      }
+    }
+    
+  }
+}

@@ -1,0 +1,23 @@
+export const fetchPopularAlbums = async () => {
+    // Fetch data from the Spotify API
+    // ...
+  
+    // Example data
+    const mockAlbums = [
+      {
+        name: "DAMN.",
+        artist: "Kendrick Lamar",
+        date: "2017",
+        coverArt: "/damn.png",
+      },
+      {
+        name: "2014 Forest Hills Drive",
+        artist: "J. Cole",
+        date: "2014 ",
+        coverArt: "/2014-Forest-Hills-Drive.jpg",
+      },
+      // Add more songs as needed
+    ];
+  
+    return mockAlbums;
+  };

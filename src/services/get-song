@@ -1,0 +1,23 @@
+export const fetchPopularSongs = async () => {
+  // Fetch data from the Spotify API
+  // ...
+
+  // Example data
+  const mockSongs = [
+    {
+      name: "The Motto",
+      artist: "Drake",
+      album: "Take Care",
+      coverArt: "/take-care.jpg",
+    },
+    {
+      name: "Glitter",
+      artist: "Tyler The Creator",
+      album: "Flower Boy",
+      coverArt: "/flower-boy.png",
+    },
+    // Add more songs as needed
+  ];
+
+  return mockSongs;
+};

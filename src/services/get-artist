@@ -1,0 +1,15 @@
+export const fetchPopularArtists = async () => {
+  //test data
+  const mockArtists = [
+    {
+      artist: "SZA",
+      profilePicture: "/sza.jpg",
+    },
+    {
+      artist: "Travis Scott",
+      profilePicture: "/travis-scott.jpg",
+    },
+  ];
+
+  return mockArtists;
+};
